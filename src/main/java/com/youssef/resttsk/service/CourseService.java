@@ -8,11 +8,11 @@ public interface CourseService {
 
     Course findById(long id);
 
-    void addCourse(Course course);
+    Course addCourse(Course course);
 
     void updateCourse(Course course);
 
-    void deleteCourse(Course course);
+    void deleteCourse(long id);
 
     List<Course> findAll();
 

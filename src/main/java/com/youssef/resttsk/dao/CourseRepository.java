@@ -8,7 +8,7 @@ public interface CourseRepository {
 
     Course findById(long id);
 
-    void addCourse(Course course);
+    Course addCourse(Course course);
 
     void updateCourse(Course course);
 
