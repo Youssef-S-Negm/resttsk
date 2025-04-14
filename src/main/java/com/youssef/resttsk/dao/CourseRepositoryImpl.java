@@ -9,7 +9,7 @@ import java.util.List;
 public class CourseRepositoryImpl implements CourseRepository {
 
     private final List<Course> courses;
-    private int courseId; // an attribute to avoid ID collision
+    private long courseId; // an attribute to avoid ID collision
 
     public CourseRepositoryImpl(List<Course> courses) {
         this.courses = courses;
@@ -31,10 +31,11 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public void addCourse(Course course) {
-        course.setId(courseId);
+    public Course addCourse(Course course) {
+        course.setId(++courseId);
         courses.add(course);
-        courseId++;
+
+        return course;
     }
 
     @Override
