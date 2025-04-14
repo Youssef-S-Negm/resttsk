@@ -2,6 +2,7 @@ package com.youssef.resttsk.service;
 
 import com.youssef.resttsk.dao.CourseRepository;
 import com.youssef.resttsk.entity.Course;
+import com.youssef.resttsk.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,12 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course findById(long id) {
-        return courseRepository.findById(id);
+        Course course = courseRepository.findById(id);
+
+        if (course == null)
+            throw new EntityNotFoundException("Couldn't find course id - " + id);
+
+        return course;
     }
 
     @Override
@@ -27,12 +33,18 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void updateCourse(Course course) {
-        courseRepository.updateCourse(course);
+        Course updatedCourse = courseRepository.updateCourse(course);
+
+        if (updatedCourse == null)
+            throw new EntityNotFoundException("Couldn't find course id - " + course.getId());
     }
 
     @Override
     public void deleteCourse(long id) {
         Course course = courseRepository.findById(id);
+
+        if (course == null)
+            throw new EntityNotFoundException("Couldn't find course id - " + id);
 
         courseRepository.deleteCourse(course);
     }
