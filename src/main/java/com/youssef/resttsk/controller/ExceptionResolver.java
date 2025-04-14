@@ -2,13 +2,14 @@ package com.youssef.resttsk.controller;
 
 import com.youssef.resttsk.dto.ErrorResponse;
 import com.youssef.resttsk.exception.EntityNotFoundException;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-//@ControllerAdvice
-//An exception was thrown when trying to reach swagger endpoints. Solved by disabling the advice controller
+@ControllerAdvice
+@Hidden
 public class ExceptionResolver {
 
     @ExceptionHandler
