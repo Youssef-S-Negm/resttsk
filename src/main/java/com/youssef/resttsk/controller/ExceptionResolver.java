@@ -7,7 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
+//@ControllerAdvice
+//An exception was thrown when trying to reach swagger endpoints. Solved by disabling the advice controller
 public class ExceptionResolver {
 
     @ExceptionHandler
