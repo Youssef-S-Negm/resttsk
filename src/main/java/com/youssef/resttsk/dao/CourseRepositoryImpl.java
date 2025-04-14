@@ -39,15 +39,20 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public void updateCourse(Course course) {
+    public Course updateCourse(Course course) {
+        Course updatedCourse = null;
+
         for (int i = 0; i < courses.size(); i++) {
             Course currentCourse = courses.get(i);
 
             if (currentCourse.getId() == course.getId()) {
                 courses.set(i, course);
+                updatedCourse = course;
                 break;
             }
         }
+
+        return updatedCourse;
     }
 
     @Override

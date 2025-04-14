@@ -10,7 +10,7 @@ public interface CourseRepository {
 
     Course addCourse(Course course);
 
-    void updateCourse(Course course);
+    Course updateCourse(Course course);
 
     void deleteCourse(Course course);
 
