@@ -49,8 +49,6 @@ public class CourseRepositoryImpl implements CourseRepository {
         allCourses.add(course);
         primaryCourseRecommender.recommendedCourses().add(course);
 
-        System.out.println(primaryCourseRecommender.recommendedCourses());
-
         return course;
     }
 
